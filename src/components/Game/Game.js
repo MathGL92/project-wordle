@@ -14,8 +14,7 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
   const handleAddGuess = (tentativeGuess) => {
-    const nextGuess = { id: Math.random(), value: tentativeGuess };
-    const nextGuesses = [...guesses, nextGuess];
+    const nextGuesses = [...guesses, tentativeGuess];
 
     setGuesses(nextGuesses);
   };
