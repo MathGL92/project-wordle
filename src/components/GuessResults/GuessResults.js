@@ -11,7 +11,7 @@ function GuessResults({ guesses, answer }) {
         const guess = guesses[num];
         const result = checkGuess(guess, answer);
 
-        return <Guess key={num} value={guess} result={result} />;
+        return <Guess key={num} result={result} />;
       })}
     </div>
   );
