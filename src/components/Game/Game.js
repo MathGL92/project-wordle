@@ -3,9 +3,10 @@ import React from "react";
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import GuessInput from "../GuessInput";
-import GameOverBanner from "../GameOverBanner";
-import GuessResults from "../GuessResults/GuessResults";
+import GuessResults from "../GuessResults";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import WonBanner from "../WonBanner";
+import LostBanner from "../LostBanner";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -39,11 +40,8 @@ function Game() {
         enabled={gameStatus === "running"}
         handleAddGuess={handleAddGuess}
       />
-      <GameOverBanner
-        gameStatus={gameStatus}
-        numOfGuesses={guesses.length}
-        answer={answer}
-      />
+      {gameStatus === "won" && <WonBanner numOfGuesses={guesses.length} />}
+      {gameStatus === "lost" && <LostBanner answer={answer} />}
     </>
   );
 }
